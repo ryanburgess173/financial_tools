@@ -7,8 +7,14 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import BusinessIcon from '@material-ui/icons/Business';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import PaymentIcon from '@material-ui/icons/Payment';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import HouseIcon from '@material-ui/icons/House';
+import ReceiptIcon from '@material-ui/icons/Receipt';
 const drawerWidth = 240;
 
 export default function MainDrawer(){
@@ -28,7 +34,7 @@ export default function MainDrawer(){
         <List>
           {['Accounts', 'Budgets', 'Assets', 'Liabilities', 'Investments'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{text === 'Investments' ? <AccountBalanceIcon /> : text === 'Accounts' ? <AttachMoneyIcon/> : text === 'Assets' ? <PaymentIcon/> : text === 'Budgets' ? <ReceiptIcon/> : <HouseIcon/>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -37,7 +43,7 @@ export default function MainDrawer(){
         <List>
           {['Markets', 'Trending', 'News'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{text === 'Trending' ? <TrendingUpIcon /> : text === 'Markets' ? <BusinessIcon/> : <AnnouncementIcon/>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
